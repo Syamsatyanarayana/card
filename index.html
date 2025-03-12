@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Name Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #2f2e2e;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            border-radius: 8px;
+
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 10px ;
+            width: 55%;
+            font-size: 16px;
+        }
+        #result {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #05111e;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Business Name Generator</h2>
+        <input type="text" id="keyword" placeholder="Enter a keyword (optional)">
+        <button onclick="generateName()">Generate Name</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const adjectives = ["Smart", "Fast", "Reliable", "Innovative", "Bold", "Creative"];
+        const nouns = ["Solutions", "Tech", "Consulting", "Enterprises", "Hub", "Studio"];
+
+        function generateName() {
+            const keyword = document.getElementById("keyword").value.trim();
+            const randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+            const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
+            const businessName = `${randomAdjective} ${keyword || "Biz"} ${randomNoun}`;
+            document.getElementById("result").textContent = businessName;
+        }
+    </script>
+</body>
+</html>
